@@ -72,7 +72,7 @@ if ($this->menuitemFieldAllowed('labels'))
             <?php
             if (is_string($model->userroles))
                 $model->userroles = explode(',', $model->userroles);
-            $this->widget('ext.select2.ESelect2', array(
+            $this->widget('ext.menubuilder.extensions.select2.ESelect2', array(
                 'model' => $model,
                 'attribute' => 'userroles',
                 'data' => $viewParams['supportedUserRoles'],
@@ -98,7 +98,7 @@ if ($this->menuitemFieldAllowed('labels'))
             <?php
             if (is_string($model->scenarios))
                 $model->scenarios = explode(',', $model->scenarios);
-            $this->widget('ext.select2.ESelect2', array(
+            $this->widget('ext.menubuilder.extensions.select2.ESelect2', array(
                 'model' => $model,
                 'attribute' => 'scenarios',
                 'data' => $viewParams['supportedScenarios'],

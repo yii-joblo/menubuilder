@@ -105,7 +105,9 @@ Support for the **userroles 'Guest' and 'Autenticated'** and two **scenarios: 'B
             //'cacheDuration'=> -1, //uncomment for disabling the menucaching
             'languages'=>array('de','en_us'),
             'supportedScenarios'=>array('backend' => 'Backend', 'frontend' => 'Frontend', 'dashboard' => 'Dashboard'),
-            //'dataAdapterClass'=> 'EMBDbAdapter', //'EMBMongoDbAdapter', //'EMBDbAdapter',
+
+            //set EMBDbAdapter to switch to mysql (checkInstall=>true on first run)
+            //'dataAdapterClass'=> 'EMBDbAdapter', //'EMBMongoDbAdapter',
 
             //the available menus/lists for the preview
             'previewMenus'=>array(
@@ -392,6 +394,7 @@ $this->widget('ext.menubuilder.widgets.EMBList', array(
 );
 ~~~
 
+
 ###Ajax
 
 Fill the '**ajaxOptions**' field in the **advanced tab of the menuitem** form with the update property:
@@ -408,6 +411,7 @@ With the **useAjaxOnClick attribute** of the EMBMenu widget (default=false) you 
 If you want to use another menu (example: XYMenu) in the preview:
 
 - Register the menu in the menuconfig
+
 ~~~
 [php]
 'modules'=>array(
@@ -419,8 +423,9 @@ If you want to use another menu (example: XYMenu) in the preview:
             
             )            
         ),
-)
+);
 ~~~
+
 
 - Create a viewfile '_xymenu.php'  in the **directory views/admin/menupreviews** with the menu widget **like _mbmenu.php or _superfish.php**
 
@@ -457,7 +462,9 @@ An example configuration could be:
                                    ),           
         ),
 )
+
 ~~~
+
  
 You can set the **EMBMenu/EMBList widgets attribute cached=>false** if you want to **exclude a specific menu from caching**.
 
@@ -519,5 +526,11 @@ I someone uses this extension in another language, please send me the translated
 
 - [YiiBooster](YiiBooster "") for the 'bootstrap' theme
 - [mongoyii](http://www.yiiframework.com/extension/mongoyii "") for the mongodb dataadapter
+
+
+##Changelog
+
+- v1.01 Bugfix: Path to select2 component 'ext.menubuilder.extensions.select2.ESelect2' instead of 'ext.select2.ESelect2' in the bluegrid-views
+        data/mbmenus.php, data/mbmenuitems.php should not be included in the released code.
 
 

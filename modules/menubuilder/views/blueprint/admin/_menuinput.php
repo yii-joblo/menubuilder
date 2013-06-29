@@ -130,7 +130,7 @@ if ($this->menuFieldAllowed('titles'))
             <?php
             if (is_string($model->scenarios))
                 $model->scenarios = explode(',', $model->scenarios);
-            $this->widget('ext.select2.ESelect2', array(
+            $this->widget('ext.menubuilder.extensions.select2.ESelect2', array(
                 'model' => $model,
                 'attribute' => 'scenarios',
                 'data' => $viewParams['supportedScenarios'],
@@ -157,7 +157,7 @@ if ($this->menuFieldAllowed('titles'))
             <?php
             if (is_string($model->adminroles))
                 $model->adminroles = explode(',', $model->adminroles);
-            $this->widget('ext.select2.ESelect2', array(
+            $this->widget('ext.menubuilder.extensions.select2.ESelect2', array(
                 'model' => $model,
                 'attribute' => 'adminroles',
                 'data' => $viewParams['supportedUserRoles'],

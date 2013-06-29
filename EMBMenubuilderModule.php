@@ -9,7 +9,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @package menubuilder
  * @category User Interface
- * @version 1.0
+ * @version 1.0.1
  */
 
 class EMBMenubuilderModule extends CWebModule
