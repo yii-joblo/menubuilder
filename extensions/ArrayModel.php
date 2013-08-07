@@ -13,6 +13,7 @@
 /**
  *
  * //bugfix j.blocher
+ * modified: getData() check file exists
  *
 * EArrayModel is the base class for classes representing array data.
 * 
@@ -665,19 +666,21 @@ class ArrayModel extends CModel
 	* 
 	* @return array Data
 	*/
-	public function getData()
-	{
-		$class = get_class($this);
-		if(!isset(self::$_data[$class]))
-		{
-			self::$_data[$class] = require(Yii::getPathOfAlias($this->fileName()).'.php');
-			
-			if(!is_array(self::$_data[$class]))
-				self::$_data[$class] = array();
-		}
-		
-		return self::$_data[$class];
-	}
+    public function getData()
+    {
+        $class = get_class($this);
+        if(!isset(self::$_data[$class]))
+        {
+            $file = Yii::getPathOfAlias($this->fileName()).'.php';
+            if(is_file($file))
+                self::$_data[$class] = require($file);
+
+            if(empty(self::$_data[$class]) || !is_array(self::$_data[$class]))
+                self::$_data[$class] = array();
+        }
+
+        return self::$_data[$class];
+    }
 	
 	/**
 	* Saves the input data array to the data file (and creates a nice 

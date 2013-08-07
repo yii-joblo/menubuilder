@@ -13,7 +13,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @package menubuilder
  * @category User Interface
- * @version 1.0
+ * @version 1.0.1
  */
 class EMBAttributesBehavior extends CActiveRecordBehavior
 {
@@ -192,14 +192,14 @@ class EMBAttributesBehavior extends CActiveRecordBehavior
         if($owner->getIsNewRecord())
         {
             $owner->created = $this->formatPersistDateTime(time());
-            $owner->createduser = Yii::app()->user->getIsGuest() ? 'guest' : Yii::app()->user->id;
+            $owner->createduser = Yii::app()->user->getIsGuest() ? 'guest' : Yii::app()->user->name;
             $owner->modified = null;
             $owner->modifieduser = null;
         }
         else
         {
             $owner->modified = $this->formatPersistDateTime(time());
-            $owner->modifieduser = Yii::app()->user->getIsGuest() ? 'guest' : Yii::app()->user->id;
+            $owner->modifieduser = Yii::app()->user->getIsGuest() ? 'guest' : Yii::app()->user->name;
         }
     }
 
