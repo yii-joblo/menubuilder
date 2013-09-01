@@ -93,7 +93,7 @@ class EMBDataFilter
             return true; //allow access to all menuitems in adminmode
 
        if(!isset($userRoles))
-         $userRoles = array_keys(self::getCurrentUserRoles());
+         $userRoles = array_keys(static::getCurrentUserRoles()); //allow subclasses to override getCurrentUserRole
 
         if(empty($userRoles))
             return $adminMode; //false if not adminMode and user has no roles assigned
